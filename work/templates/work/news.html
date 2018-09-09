@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    </head>
+    <body>
+<form  method="POST" id="myform">
+    {% csrf_token %}
+    <div class="container">
+            <!-- Content here -->
+
+
+    <!-- <dl class="row">
+            <dt class="col-sm-3">標題</dt>
+            <dd class="col-sm-9" id="listt3" >{{listt3}}</dd>
+          
+            <dt class="col-sm-3">內容:</dt>
+            <dd class="col-sm-9" id="listn3">{{listn3}}</dd>
+            <dd class="col-sm-9 offset-sm-3">Donec id elit non mi porta gravida at eget metus.</dd>
+          
+            <dt class="col-sm-3">Malesuada porta</dt>
+            <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
+          
+            <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+            <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+          
+          </dl> -->
+
+
+
+    <div class="">
+      <div class="form-group " style="margin-top:10px">
+        <p style="font-family:sans-serif;"> 標題:</p>
+        <p type="text" class="form-control" id="listt3" name="uiname" placeholder="name">{{listt3}}
+        </p>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">內容:</label>
+      <p type="number" class="form-control" id="listn3" name="uitel" placeholder="tel">{{listn3}}
+    </p>
+    <div class="form-group">
+      <label for="inputAddress2">網址:</label>
+      <a id="listh3" href={{listh3}}> 
+      </a>
+    </div>
+
+    <div class="">
+        <div class="form-group " style="margin-top:10px">
+          <label for="newstitle">標題:</label>
+          <p type="text" class="form-control" id="listt2" name="uiname" placeholder="name">{{listt2}}
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">內容:</label>
+        <p type="number" class="form-control" id="listn2" name="uitel" placeholder="tel">{{listn2}}
+      </p>
+      <div class="form-group">
+        <label for="inputAddress2">網址:</label>
+        <a id="listh2" href={{listh2}}> 
+        </a>
+      </div>
+
+      <div class="">
+        <div class="form-group " style="margin-top:10px">
+          <label for="newstitle">標題:</label>
+          <p type="text" class="form-control" id="listt1" name="uiname" placeholder="name">{{listt1}}
+          </p>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">內容:</label>
+        <p type="number" class="form-control" id="listn1" name="uitel" placeholder="tel">{{listn1}}
+      </p>
+      <div class="form-group">
+        <label for="inputAddress2">網址:</label>
+        <a id="listh1" href={{listh1}}> 
+        </a>
+      </div>
+
+
+    <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1%;background-color:#fc642d">
+      <a style="font-size:100%;color:beige;font-family:sans-serif;" width="100% ">
+          新聞整理
+      </a>
+    </button>
+    </div>
+</form>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $.ajax({
+    type:'GET',
+    url:'/go_dic/',
+
+    success: function (data) {
+        // alert(data["listt1"]);
+        $(data).each(function(){
+            var listt1 = data["listt1"];
+            var listt2 = data["listt2"];
+            var listt3 = data["listt3"];
+            var listn1 = data["listn1"];
+            var listn2 = data["listn2"];
+            var listn3 = data["listn3"];
+            var listh1 = data["listh1"];
+            var listh2 = data["listh2"];
+            var listh3 = data["listh3"];
+            // alert(listt2);
+        $('#listt1').append(listt1 + '<br>');
+        $('#listt2').append(listt2 + '<br>');
+        $('#listt3').append(listt3 + '<br>');
+        $('#listn1').append(listn1 + '<br>');
+        $('#listn2').append(listn2 + '<br>');
+        $('#listn3').append(listn3 + '<br>');
+        $('#listh1').append(listh1 + '<br>');
+        $('#listh2').append(listh2 + '<br>');
+        $('#listh3').append(listh3 + '<br>');
+        });
+        
+    }
+    });
+
+    $.ajax({
+    type:'GET',
+    url:'/scrapy/',
+});
+</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

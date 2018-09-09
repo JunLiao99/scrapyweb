@@ -1,0 +1,1 @@
+dbConfig =  {"host":"127.0.0.1","user":"root","password":"abcd1234","db":"travel","use_unicode":True, "charset":"utf8"}
